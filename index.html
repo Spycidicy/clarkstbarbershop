@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clark St. Barber - Premium Barbershop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark background */
+            color: #E5E7EB; /* Light text */
+        }
+        .playfair-display {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 1)), url('https://placehold.co/1920x1080/2d3748/e2e8f0?text=Barbershop+Interior');
+            background-size: cover;
+            background-position: center;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #F9FAFB;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #D1D5DB;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #D97706; /* Amber */
+            color: #F9FAFB;
+        }
+        .btn-primary:hover {
+            background-color: #B45309;
+        }
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #D97706;
+            color: #D97706;
+        }
+        .btn-secondary:hover {
+            background-color: #D97706;
+            color: #F9FAFB;
+        }
+        .service-card, .barber-card, .gallery-img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover, .barber-card:hover, .gallery-img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(217, 119, 6, 0.2), 0 4px 6px -2px rgba(217, 119, 6, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold playfair-display text-white">Clark St. Barber</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-amber-500 transition-colors">About</a>
+                <a href="#services" class="hover:text-amber-500 transition-colors">Services</a>
+                <a href="#team" class="hover:text-amber-500 transition-colors">Team</a>
+                <a href="#gallery" class="hover:text-amber-500 transition-colors">Gallery</a>
+                <a href="#contact" class="hover:text-amber-500 transition-colors">Contact</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-block btn btn-primary">Book Now</a>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <nav class="px-6 pt-2 pb-4 space-y-2">
+                <a href="#about" class="block text-center py-2 hover:bg-gray-800 rounded">About</a>
+                <a href="#services" class="block text-center py-2 hover:bg-gray-800 rounded">Services</a>
+                <a href="#team" class="block text-center py-2 hover:bg-gray-800 rounded">Team</a>
+                <a href="#gallery" class="block text-center py-2 hover:bg-gray-800 rounded">Gallery</a>
+                <a href="#contact" class="block text-center py-2 hover:bg-gray-800 rounded">Contact</a>
+                <a href="#contact" class="block text-center mt-4 btn btn-primary w-full">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-black playfair-display text-white mb-4 leading-tight">Style, Precision, Perfection.</h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Experience the art of modern barbering. We are dedicated to providing the highest quality cuts and shaves.</p>
+            <div class="space-x-4">
+                <a href="#services" class="btn btn-primary">Our Services</a>
+                <a href="#contact" class="btn btn-secondary">Find Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Us Section -->
+        <section id="about" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <img src="https://placehold.co/600x400/1f2937/e2e8f0?text=Our+Shop" alt="Inside the barbershop" class="rounded-lg shadow-2xl w-full">
+                    </div>
+                    <div>
+                        <h2 class="section-title text-left">Our Story</h2>
+                        <p class="mb-4 text-gray-400">Founded in 2025, Clark St. Barber was born from a passion for the true art of barbering and a commitment to inclusivity. We believe a great haircut is a form of self-expression, and our mission is to provide a space where everyone can achieve their perfect look. We're more than just a barbershop; we're a hub of style and community for all.</p>
+                        <p class="text-gray-400">Our strength lies in our diversity. We've brought together a talented team of barbers skilled in cutting all hair types—curly, straight, textured, and everything in between. We've created a relaxed and welcoming atmosphere where you can trust our experts to deliver a look that's tailored just for you, blending classic techniques with modern style.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 md:py-32 bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Precision cuts and classic shaves, all tailored to your style. Quality is our promise.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Service 1 -->
+                    <div class="service-card bg-gray-900 p-8 rounded-lg text-center">
+                        <h3 class="text-xl font-bold text-white mb-2">Modern Haircut</h3>
+                        <p class="text-amber-400 text-2xl font-bold mb-4">$40</p>
+                        <p class="text-gray-400">A stylish cut and finish, tailored to your preference, including a wash and style.</p>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="service-card bg-gray-900 p-8 rounded-lg text-center">
+                        <h3 class="text-xl font-bold text-white mb-2">Classic Hot Towel Shave</h3>
+                        <p class="text-amber-400 text-2xl font-bold mb-4">$45</p>
+                        <p class="text-gray-400">A traditional straight razor shave with hot towels, pre-shave oil, and aftershave balm.</p>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="service-card bg-gray-900 p-8 rounded-lg text-center">
+                        <h3 class="text-xl font-bold text-white mb-2">Haircut & Shave Combo</h3>
+                        <p class="text-amber-400 text-2xl font-bold mb-4">$80</p>
+                        <p class="text-gray-400">The full experience. A precision haircut followed by our classic hot towel shave.</p>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="service-card bg-gray-900 p-8 rounded-lg text-center">
+                        <h3 class="text-xl font-bold text-white mb-2">Beard Trim & Shape-Up</h3>
+                        <p class="text-amber-400 text-2xl font-bold mb-4">$25</p>
+                        <p class="text-gray-400">Keep your beard looking its best with a detailed trim, line-up, and conditioning.</p>
+                    </div>
+                    <!-- Service 5 -->
+                    <div class="service-card bg-gray-900 p-8 rounded-lg text-center">
+                        <h3 class="text-xl font-bold text-white mb-2">Buzz Cut</h3>
+                        <p class="text-amber-400 text-2xl font-bold mb-4">$20</p>
+                        <p class="text-gray-400">A clean, simple, one-length clipper cut all over.</p>
+                    </div>
+                    <!-- Service 6 -->
+                    <div class="service-card bg-gray-900 p-8 rounded-lg text-center">
+                        <h3 class="text-xl font-bold text-white mb-2">Kids Cut (Under 12)</h3>
+                        <p class="text-amber-400 text-2xl font-bold mb-4">$30</p>
+                        <p class="text-gray-400">A great cut for the little gentlemen, ensuring they look sharp and feel great.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Team Section -->
+        <section id="team" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Meet Our Barbers</h2>
+                <p class="section-subtitle">Our team of experienced barbers are masters of their craft, dedicated to making you look and feel your best.</p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Barber 1 -->
+                    <div class="barber-card text-center">
+                        <img src="https://placehold.co/400x400/2d3748/e2e8f0?text=AJ" alt="Barber AJ" class="w-full h-auto rounded-lg mb-4">
+                        <h3 class="text-xl font-bold text-white">AJ</h3>
+                        <p class="text-amber-400">Master Barber</p>
+                    </div>
+                    <!-- Barber 2 -->
+                    <div class="barber-card text-center">
+                        <img src="https://placehold.co/400x400/2d3748/e2e8f0?text=Hollywood" alt="Barber Hollywood" class="w-full h-auto rounded-lg mb-4">
+                        <h3 class="text-xl font-bold text-white">Hollywood</h3>
+                        <p class="text-amber-400">Senior Barber</p>
+                    </div>
+                    <!-- Barber 3 -->
+                    <div class="barber-card text-center">
+                        <img src="https://placehold.co/400x400/2d3748/e2e8f0?text=Chris+Lee" alt="Barber Chris Lee" class="w-full h-auto rounded-lg mb-4">
+                        <h3 class="text-xl font-bold text-white">Chris Lee</h3>
+                        <p class="text-amber-400">Barber</p>
+                    </div>
+                    <!-- Barber 4 -->
+                    <div class="barber-card text-center">
+                        <img src="https://placehold.co/400x400/2d3748/e2e8f0?text=Alex+Chen" alt="Barber Alex Chen" class="w-full h-auto rounded-lg mb-4">
+                        <h3 class="text-xl font-bold text-white">Alex Chen</h3>
+                        <p class="text-amber-400">Apprentice Barber</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-20 md:py-32 bg-gray-800">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Our Work</h2>
+                <p class="section-subtitle">A glimpse into the styles we create. See the quality and precision for yourself.</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4">
+                        <img class="gallery-img h-auto max-w-full rounded-lg" src="/images/image1.jpg" alt="Haircut example 1">
+                        <img class="gallery-img h-auto max-w-full rounded-lg" src="https://placehold.co/500x400/1f2937/e2e8f0?text=Haircut+2" alt="Haircut example 2">
+                    </div>
+                     <div class="grid gap-4">
+                        <img class="gallery-img h-auto max-w-full rounded-lg" src="https://placehold.co/500x400/1f2937/e2e8f0?text=Haircut+3" alt="Haircut example 3">
+                        <img class="gallery-img h-auto max-w-full rounded-lg" src="/images/image4.jpg" alt="Haircut example 4">
+                    </div>
+                     <div class="grid gap-4">
+                        <img class="gallery-img h-auto max-w-full rounded-lg" src="/images/image5.jpg" alt="Haircut example 5">
+                        <img class="gallery-img h-auto max-w-full rounded-lg" src="https://placehold.co/500x400/1f2937/e2e8f0?text=Haircut+6" alt="Haircut example 6">
+                    </div>
+                     <div class="grid gap-4">
+                        <img class="gallery-img h-auto max-w-full rounded-lg" src="https://placehold.co/500x400/1f2937/e2e8f0?text=Haircut+7" alt="Haircut example 7">
+                        <img class="gallery-img h-auto max-w-full rounded-lg" src="/images/image8.jpg" alt="Haircut example 8">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Hours Section -->
+        <section id="contact" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Book Your Appointment</h2>
+                <p class="section-subtitle">Walk-ins are welcome, but appointments are recommended. Get in touch to schedule your visit.</p>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Info & Hours -->
+                    <div class="bg-gray-800 p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold mb-6 text-white">Contact & Hours</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-amber-400 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold">Address</h4>
+                                    <p class="text-gray-400">123 Style Street, Chicago, IL 60601</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone text-amber-400 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <p class="text-gray-400">(312) 555-0199</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-amber-400 mt-1 mr-4"></i>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p class="text-gray-400">bookings@clarkstbarber.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-700 my-6"></div>
+                        <div>
+                             <h4 class="font-semibold mb-2 text-white">Opening Hours</h4>
+                             <ul class="text-gray-400 space-y-1">
+                                <li class="flex justify-between"><span>Tuesday - Friday</span> <span>9am - 7pm</span></li>
+                                <li class="flex justify-between"><span>Saturday</span> <span>9am - 5pm</span></li>
+                                <li class="flex justify-between"><span>Sunday - Monday</span> <span>Closed</span></li>
+                             </ul>
+                        </div>
+                    </div>
+                    <!-- Map -->
+                    <div>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47529.59349842137!2d-87.6647146513672!3d41.875561600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2cae74895bff%3A0x192122c6e61f43f!2sChicago%2C%20IL!5e0!3m2!1sen!2sus!4v1678886912345!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="rounded-lg">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">&copy; 2025 Clark St. Barber. All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-amber-500 transition-colors"><i class="fab fa-facebook-f text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-amber-500 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-amber-500 transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
