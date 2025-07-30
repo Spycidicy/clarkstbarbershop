@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Team - Clark St. Barbershop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* All your existing styles are kept for consistent branding */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark background */
+            color: #E5E7EB; /* Light text */
+        }
+        .playfair-display {
+            font-family: 'Playfair Display', serif;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #F9FAFB;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #D1D5DB;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #D97706; /* Amber */
+            color: #F9FAFB;
+        }
+        .btn-primary:hover {
+            background-color: #B45309;
+        }
+        /* Form-specific styles */
+        .form-input {
+            width: 100%;
+            background-color: #1F2937; /* Gray-800 */
+            border: 1px solid #4B5563; /* Gray-600 */
+            color: #E5E7EB;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #D97706; /* Amber */
+            box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.5);
+        }
+        .form-radio {
+            accent-color: #D97706;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Simplified Header -->
+    <header class="bg-gray-900/80 backdrop-blur-sm sticky top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-center items-center">
+             <!-- Make sure to replace 'index.html' with the correct name of your homepage -->
+            <a href="index.html" class="text-2xl font-bold playfair-display text-white">Clark St. Barbershop</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Application Section -->
+        <section id="application" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Join Our Team</h2>
+                <p class="section-subtitle">We're looking for passionate and talented barbers to join the Clark St. family. If you have a love for the craft and a commitment to quality, we want to hear from you.</p>
+
+                <!-- Application Form -->
+                <form action="https://formspree.io/f/xeozkyyv" method="POST" class="max-w-3xl mx-auto bg-gray-800 p-8 rounded-lg shadow-2xl space-y-6">
+                    
+                    <!-- Personal Information -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="full-name" class="block mb-2 font-semibold text-gray-300">Full Name</label>
+                            <input type="text" id="full-name" name="full-name" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 font-semibold text-gray-300">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                    </div>
+                     <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="phone" class="block mb-2 font-semibold text-gray-300">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="portfolio" class="block mb-2 font-semibold text-gray-300">Portfolio/Instagram Link</label>
+                            <input type="url" id="portfolio" name="portfolio" placeholder="https://instagram.com/your-work" class="form-input">
+                        </div>
+                    </div>
+
+                    <!-- Professional Experience -->
+                    <div>
+                        <label for="experience" class="block mb-2 font-semibold text-gray-300">Years of Professional Experience</label>
+                        <select id="experience" name="experience" class="form-input" required>
+                            <option value="">Please select</option>
+                            <option value="0-1">0 - 1 year (Apprentice)</option>
+                            <option value="1-3">1 - 3 years</option>
+                            <option value="3-5">3 - 5 years</option>
+                            <option value="5+">5+ years</option>
+                        </select>
+                    </div>
+
+                    <!-- Preferred Arrangement -->
+                    <div>
+                        <label class="block mb-2 font-semibold text-gray-300">Preferred Arrangement</label>
+                        <div class="mt-2 space-y-2 md:space-y-0 md:flex md:space-x-8">
+                            <div class="flex items-center">
+                                <input id="arrangement-rent" name="arrangement" type="radio" value="rent" class="form-radio h-4 w-4" required>
+                                <label for="arrangement-rent" class="ml-3 block text-sm font-medium text-gray-300">Rent a Chair ($300/week)</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="arrangement-split" name="arrangement" type="radio" value="split" class="form-radio h-4 w-4">
+                                <label for="arrangement-split" class="ml-3 block text-sm font-medium text-gray-300">60/40 Commission Split</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- About You -->
+                    <div>
+                        <label for="about-you" class="block mb-2 font-semibold text-gray-300">Tell us about your skills and why you want to join us</label>
+                        <textarea id="about-you" name="about-you" rows="5" class="form-input" required></textarea>
+                    </div>
+
+                    <!-- File Upload -->
+                    <div>
+                         <label for="resume" class="block mb-2 font-semibold text-gray-300">Upload Your Resume (Optional)</label>
+                         <input type="file" id="resume" name="resume" class="form-input file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-100 file:text-amber-700 hover:file:bg-amber-200">
+                    </div>
+                    
+                    <!-- Submission Button -->
+                    <div class="text-center pt-4">
+                        <button type="submit" class="btn btn-primary w-full md:w-auto">Submit Application</button>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center">
+                <p class="text-gray-400">&copy; 2025 Clark St. Barbershop. All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-amber-500 transition-colors"><i class="fab fa-facebook-f text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-amber-500 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-amber-500 transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
