@@ -71,6 +71,12 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(217, 119, 6, 0.2), 0 4px 6px -2px rgba(217, 119, 6, 0.1);
         }
+        /* Style for the specifically resized image */
+        #resized-image-4 {
+            width: 75%; /* Or any percentage you prefer */
+            margin-left: auto;
+            margin-right: auto;
+        }
         /* Modal Styles */
         .modal-overlay {
             visibility: hidden;
@@ -289,7 +295,7 @@
                     </div>
                      <div class="grid gap-4">
                         <img class="gallery-img h-auto max-w-full rounded-lg" src="/images/image3.jpg" alt="Haircut example 3">
-                        <img class="gallery-img h-auto max-w-full rounded-lg" src="/images/image4.jpg" alt="Haircut example 4">
+                        <img id="resized-image-4" class="gallery-img h-auto max-w-full rounded-lg" src="/images/image4.jpg" alt="Haircut example 4">
                     </div>
                      <div class="grid gap-4">
                         <img class="gallery-img h-auto max-w-full rounded-lg" src="/images/image5.jpg" alt="Haircut example 5">
