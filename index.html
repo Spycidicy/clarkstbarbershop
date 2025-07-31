@@ -71,6 +71,69 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 15px -3px rgba(217, 119, 6, 0.2), 0 4px 6px -2px rgba(217, 119, 6, 0.1);
         }
+        /* Modal Styles */
+        .modal-overlay {
+            visibility: hidden;
+            opacity: 0;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modal-content {
+            background-color: #1f2937; /* bg-gray-800 */
+            padding: 2rem;
+            border-radius: 0.5rem;
+            width: 90%;
+            max-width: 48rem; /* max-w-3xl */
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: #9ca3af; /* text-gray-400 */
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .modal-close-btn:hover {
+            color: #f9fafb; /* text-gray-50 */
+        }
+        /* Form Styles */
+        .form-input {
+            width: 100%;
+            background-color: #374151; /* bg-gray-700 */
+            border: 1px solid #4B5563; /* Gray-600 */
+            color: #E5E7EB;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #D97706; /* Amber */
+            box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.5);
+        }
+        .form-radio {
+            accent-color: #D97706;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -305,17 +368,97 @@
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-400">&copy; 2025 Clark St. Barbershop. All Rights Reserved.</p>
-                <div class="flex space-x-4 mt-4 md:mt-0">
+                <div class="flex items-center space-x-4 mt-4 md:mt-0">
                     <a href="#" class="text-gray-400 hover:text-amber-500 transition-colors"><i class="fab fa-facebook-f text-xl"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-amber-500 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="https://www.instagram.com/clarkstbarbershop" target="_blank" class="text-gray-400 hover:text-amber-500 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
                     <a href="#" class="text-gray-400 hover:text-amber-500 transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#apply" id="open-modal-btn" class="text-gray-300 hover:text-amber-500 transition-colors font-semibold ml-2">Join Us</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Application Modal -->
+    <div id="application-modal" class="modal-overlay">
+        <div class="modal-content">
+            <i id="close-modal-btn" class="fas fa-times modal-close-btn"></i>
+            <h2 class="section-title text-3xl">Join Our Team</h2>
+            <p class="section-subtitle text-base">We're looking for passionate barbers. Fill out the form below to apply.</p>
+
+            <!-- Application Form -->
+            <form action="https://formspree.io/f/xeozkyyv" method="POST" class="space-y-6">
+                <!-- Personal Information -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="full-name" class="block mb-2 font-semibold text-gray-300">Full Name</label>
+                        <input type="text" id="full-name" name="full-name" class="form-input" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 font-semibold text-gray-300">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                </div>
+                 <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="phone" class="block mb-2 font-semibold text-gray-300">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required>
+                    </div>
+                    <div>
+                        <label for="portfolio" class="block mb-2 font-semibold text-gray-300">Portfolio/Instagram Link</label>
+                        <input type="url" id="portfolio" name="portfolio" placeholder="https://instagram.com/your-work" class="form-input">
+                    </div>
+                </div>
+
+                <!-- Professional Experience -->
+                <div>
+                    <label for="experience" class="block mb-2 font-semibold text-gray-300">Years of Professional Experience</label>
+                    <select id="experience" name="experience" class="form-input" required>
+                        <option value="">Please select</option>
+                        <option value="0-1">0 - 1 year (Apprentice)</option>
+                        <option value="1-3">1 - 3 years</option>
+                        <option value="3-5">3 - 5 years</option>
+                        <option value="5+">5+ years</option>
+                    </select>
+                </div>
+
+                <!-- Preferred Arrangement -->
+                <div>
+                    <label class="block mb-2 font-semibold text-gray-300">Preferred Arrangement</label>
+                    <div class="mt-2 space-y-2 md:space-y-0 md:flex md:space-x-8">
+                        <div class="flex items-center">
+                            <input id="arrangement-rent" name="arrangement" type="radio" value="rent" class="form-radio h-4 w-4" required>
+                            <label for="arrangement-rent" class="ml-3 block text-sm font-medium text-gray-300">Rent a Chair ($300/week)</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="arrangement-split" name="arrangement" type="radio" value="split" class="form-radio h-4 w-4">
+                            <label for="arrangement-split" class="ml-3 block text-sm font-medium text-gray-300">60/40 Commission Split</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About You -->
+                <div>
+                    <label for="about-you" class="block mb-2 font-semibold text-gray-300">Tell us about your skills and why you want to join us</label>
+                    <textarea id="about-you" name="about-you" rows="4" class="form-input" required></textarea>
+                </div>
+
+                <!-- File Upload -->
+                <div>
+                     <label for="resume" class="block mb-2 font-semibold text-gray-300">Upload Your Resume (Optional)</label>
+                     <input type="file" id="resume" name="resume" class="form-input file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-100 file:text-amber-700 hover:file:bg-amber-200">
+                </div>
+                
+                <!-- Submission Button -->
+                <div class="text-center pt-4">
+                    <button type="submit" class="btn btn-primary w-full md:w-auto">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
     <script>
-        // Mobile menu toggle
+        // --- Mobile menu toggle ---
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -329,6 +472,60 @@
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
+        });
+
+        // --- Application Modal Logic ---
+        const modalOverlay = document.getElementById('application-modal');
+        const openModalBtn = document.getElementById('open-modal-btn');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+
+        // Function to open the modal
+        const openModal = () => {
+            modalOverlay.classList.add('active');
+        };
+
+        // Function to close the modal
+        const closeModal = () => {
+            modalOverlay.classList.remove('active');
+        };
+
+        // Event listeners
+        openModalBtn.addEventListener('click', (event) => {
+            // Prevent the default anchor link behavior
+            event.preventDefault();
+            openModal();
+            // Optionally, update the URL without reloading the page
+            history.pushState(null, null, '#apply');
+        });
+
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Close modal if user clicks on the overlay background
+        modalOverlay.addEventListener('click', (event) => {
+            if (event.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        // Close modal if user presses the Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Check for #apply hash on page load
+        window.addEventListener('load', () => {
+            if(window.location.hash === '#apply') {
+                openModal();
+            }
+        });
+
+        // Also handle back/forward browser button navigation
+        window.addEventListener('hashchange', () => {
+             if(window.location.hash === '#apply') {
+                openModal();
+            }
         });
     </script>
 </body>
